@@ -58,8 +58,24 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
+    
 }
 
 extension ViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completionHandler) in
+            self.memoList.remove(at: indexPath.row) // 데이터 삭제
+            tableView.deleteRows(at: [indexPath], with: .fade) // UI에서 삭제
+            completionHandler(true) // 액션 완료
+        }
+        
+        deleteAction.backgroundColor = .red // 버튼 색상 지정
+        
+        // 여러 개의 액션을 설정할 수 있음 (예: 즐겨찾기 추가)
+        let config = UISwipeActionsConfiguration(actions: [deleteAction])
+        config.performsFirstActionWithFullSwipe = false // 전체 스와이프 시 자동 실행
+        
+        return config
+    }
 }
