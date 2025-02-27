@@ -9,6 +9,4 @@ import UIKit
 
 class MemoTableCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
-    
-    
 }
