@@ -11,14 +11,27 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var memoList: [String] = ["first", "second", "third"]
+    var memoList: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         tableView.delegate = self
+        loadData()
+        tableView.reloadData()
     }
+    
+    func saveData() {
+        UserDefaults.standard.set(memoList, forKey: "memoList")
+    }
+    
+    func loadData() {
+        if let savedMemoList = UserDefaults.standard.array(forKey: "memoList") as? [String] {
+            memoList = savedMemoList
+        }
+    }
+
 
     @IBAction func didTapPlusBarButton(_ sender: Any) {
         let alert = UIAlertController(title: "메모 추가", message: "추가할 메모를 입력해 주세요", preferredStyle: .alert)
@@ -33,6 +46,7 @@ class ViewController: UIViewController {
             if let text = alert.textFields?.first?.text {
                 print("Entered text: \(text)")
                 self.memoList.append(text)
+                self.saveData()
                 self.tableView.reloadData()
             }
         }
