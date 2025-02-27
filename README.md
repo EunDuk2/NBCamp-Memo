@@ -6,7 +6,6 @@
 ## **📚 학습 목표**
 
 
-[data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)
 
 1. **UITableView 사용**: 데이터 리스트를 화면에 표시하고, 동적으로 업데이트하는 방법 익히기.
 2. **UserDefaults 활용**: 데이터를 저장하고 앱 재실행 시 복원하기.
