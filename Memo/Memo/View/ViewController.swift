@@ -23,9 +23,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapPlusBarButton(_ sender: Any) {
-        controller.createMemoAlert(on: self, completion: {
+        let alert = UIAlertControllerManager.createMemoAlert(title: "메모 추가", message: "추가할 메모를 입력해 주세요", cancelTitle: "취소", confirmTitle: "확인", confirmHandler: { text in
+            self.controller.appendMemo(text: text)
             self.tableView.reloadData()
         })
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

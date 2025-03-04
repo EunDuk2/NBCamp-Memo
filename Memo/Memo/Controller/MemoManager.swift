@@ -34,15 +34,6 @@ class MemoManager {
         saveMemoList()
     }
     
-    func createMemoAlert(on viewController: UIViewController, completion: @escaping () -> Void) {
-        let alert = UIAlertControllerManager.createMemoAlert(title: "메모 추가", message: "추가할 메모를 입력해 주세요", cancelTitle: "취소", confirmTitle: "확인", confirmHandler: { text in
-            self.appendMemo(text: text)
-            completion()
-        })
-        
-        viewController.present(alert, animated: true, completion: nil)
-    }
-    
     private func saveMemoList() {
         UserDefaultsManager.shared.saveCodable(self.memoList, forKey: "memoList")
     }
