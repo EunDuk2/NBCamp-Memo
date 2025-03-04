@@ -1,5 +1,5 @@
 //
-//  MemoController.swift
+//  MemoManager.swift
 //  Memo
 //
 //  Created by Eunsung on 2/27/25.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemoController {
+class MemoManager {
     private var memoList: [MemoModel]
     
     init(memoList: [MemoModel]) {

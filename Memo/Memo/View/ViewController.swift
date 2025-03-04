@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var controller: MemoController = MemoController(memoList: [])
+    var controller: MemoManager = MemoManager(memoList: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
